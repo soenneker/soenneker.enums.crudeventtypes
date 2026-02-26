@@ -1,11 +1,11 @@
-﻿using Intellenum;
+using Soenneker.Gen.EnumValues;
 
 namespace Soenneker.Enums.CrudEventTypes;
 
 /// <summary>
 /// An enumeration for Create, Read, Update, Delete events.
 /// </summary>
-[Intellenum<string>]
+[EnumValue<string>]
 public sealed partial class CrudEventType
 {
     public static readonly CrudEventType Create = new(nameof(Create));
