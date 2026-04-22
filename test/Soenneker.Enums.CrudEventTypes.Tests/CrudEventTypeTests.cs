@@ -1,10 +1,9 @@
-﻿using Xunit;
 
 namespace Soenneker.Enums.CrudEventTypes.Tests;
 
 public sealed class CrudEventTypeTests
 {
-    [Fact]
+    [Test]
     public void Default()
     {
 
