@@ -3,28 +3,28 @@ using Soenneker.Gen.EnumValues;
 namespace Soenneker.Enums.CrudEventTypes;
 
 /// <summary>
-/// An enumeration for Create, Read, Update, Delete events.
+/// Identifies the create, read, update, or delete action represented by a data event.
 /// </summary>
 [EnumValue<string>]
 public sealed partial class CrudEventType
 {
     /// <summary>
-    /// The create.
+    /// A resource was or will be created.
     /// </summary>
     public static readonly CrudEventType Create = new(nameof(Create));
 
     /// <summary>
-    /// The read.
+    /// A resource was or will be read.
     /// </summary>
     public static readonly CrudEventType Read = new(nameof(Read));
 
     /// <summary>
-    /// The update.
+    /// A resource was or will be updated.
     /// </summary>
     public static readonly CrudEventType Update = new(nameof(Update));
 
     /// <summary>
-    /// The delete.
+    /// A resource was or will be deleted.
     /// </summary>
     public static readonly CrudEventType Delete = new(nameof(Delete));
 }
