@@ -5,7 +5,7 @@
 
 # Soenneker.Enums.CrudEventTypes
 
-Identifies the create, read, update, or delete action represented by a data event.
+A string-backed enum-value type for identifying the create, read, update, or delete operation represented by an event.
 
 ## Install
 
@@ -13,6 +13,27 @@ Identifies the create, read, update, or delete action represented by a data even
 dotnet add package Soenneker.Enums.CrudEventTypes
 ```
 
-## What you get
+## Usage
 
-- `CrudEventType` — Identifies the create, read, update, or delete action represented by a data event.
+```csharp
+using Soenneker.Enums.CrudEventTypes;
+
+CrudEventType eventType = CrudEventType.Update;
+string wireValue = eventType.Value; // "Update"
+
+if (CrudEventType.TryFromValue(input, out CrudEventType? parsed))
+{
+    // parsed is one of the shared static instances
+}
+```
+
+Available values:
+
+- `Create`
+- `Read`
+- `Update`
+- `Delete`
+
+`System.Text.Json` serializes the type as its string value and restores known values to the corresponding static instance. `FromValue` throws for an unknown value; use `TryFromValue` when handling external input. `FromName` and `TryFromName` are also generated for member-name lookup.
+
+The type only labels an operation. It does not perform CRUD work or describe when an operation occurred, whether it succeeded, or whether an event represents a request or a completed change; define that meaning in the surrounding event contract.
